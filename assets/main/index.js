@@ -171,6 +171,7 @@ window.__require = function e(t, n, r) {
       onLoad: function onLoad() {
         var _this = this;
         console.log(this.manifestUrl);
+        console.log(this.manifestUrl.nativeUrl);
         var data = JSON.parse(this.manifestUrl._$nativeAsset);
         console.log(data);
         console.log(data.version);
