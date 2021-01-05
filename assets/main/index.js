@@ -143,14 +143,12 @@ window.__require = function e(t, n, r) {
         }
       },
       checkUpdate: function checkUpdate() {
+        console.log(cc.loader.md5Pipe);
         if (this._updating) {
           this.label.string = "\u68c0\u67e5\u66f4\u65b0\u4e2d...";
           return;
         }
-        if (this._am.getState() === jsb.AssetsManager.State.UNINITED) {
-          cc.loader.md5Pipe && (url = cc.loader.md5Pipe.transformURL(this.manifestUrl.nativeUrl));
-          this._am.loadLocalManifest(this.manifestUrl.nativeUrl);
-        }
+        this._am.getState() === jsb.AssetsManager.State.UNINITED && this._am.loadLocalManifest(this.manifestUrl.nativeUrl);
         if (!this._am.getLocalManifest() || !this._am.getLocalManifest().isLoaded()) {
           this.label.string = "\u672c\u5730manifest\u52a0\u8f7d\u5931\u8d25...";
           return;
