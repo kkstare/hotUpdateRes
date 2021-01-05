@@ -40,6 +40,10 @@ window.__require = function e(t, n, r) {
         label: {
           default: null,
           type: cc.Label
+        },
+        label2: {
+          default: null,
+          type: cc.Label
         }
       },
       checkCb: function checkCb(event) {
@@ -166,6 +170,11 @@ window.__require = function e(t, n, r) {
       },
       onLoad: function onLoad() {
         var _this = this;
+        console.log(this.manifestUrl);
+        var data = JSON.parse(this.manifestUrl._$nativeAsset);
+        console.log(data);
+        console.log(data.version);
+        this.label2.string = data.version;
         if (!cc.sys.isNative) return;
         this._storagePath = (jsb.fileUtils ? jsb.fileUtils.getWritablePath() : "/") + "remote-asset";
         cc.log("Storage\xa0path\xa0for\xa0remote\xa0asset\xa0:\xa0" + this._storagePath);
